@@ -7,44 +7,44 @@
 
 ## Step 1: Downloaded and Set up Nessus Essentials
 > Nessus Was used as the vulnerability scanner in this lab
-![in](insert first pic)
+![in](https://i.imgur.com/NKKVAMf.png)
 
 ## Step 2: Set up Windows 10 VM
 > The Windows 10 VM was the client used to run vulnerability scans on
 - Set up Windows 10 VM with 4 GB of RAM, 4 CPUs, and 50 GB storage.
-![win](insert second photo)
+![win](https://i.imgur.com/ivCTdOE.png)
 
 ## Step 3: Ensured connectivity with the VM 
 > VM's Network Settings
-![thrid](3rd pic)
+![thrid](https://i.imgur.com/vMk95wC.png)
 - Any attempt to "ping" the VM was timing out because of firewall protections
-![before](add 4thpic)
+![before](https://i.imgur.com/yJVhSsi.png)
 - Turned off firewall settings to ensure the VM was reachable.
 > It is not recommended to do this in a normal working environment. This was solely done for the purpose of this lab.
-![insert 5th pic](5th)
+![insert 5th pic](https://i.imgur.com/XpFkHTa.png)
 
 - VM was successfully "pinged" after the firewall was turned off.
-![work](6th pic)
+![work](https://i.imgur.com/cIFmDZu.png)
 
 ## Step 4: First scan; ran a basic scan on Nessus
 > The "basic scan" performs a simple vulnerability scan of the target.
 - AFter the basic scan was completed the following vulnerabilities were found:
 - **31 info** level
 - **2 medium** level vulnerabilities.
-![basic](insert 7th pic)
+![basic](https://i.imgur.com/PmduP37.png)
 
 ## Step 5: Configured the VM for credentialed scans
 - Enabled "Remote Registry" allowing Nessus to connect to the VM's registry remotely for a credentialed scan.
 
-![insert](insert 8th pic)
+![insert](https://i.imgur.com/LGNZ3uD.png)
 
 - Changed the UAC (User Account Control) to "never notify me"
 
-![fa}(9th pic)
+![fa](https://i.imgur.com/yKUpKL2.png)
 
 - Added a DWORD Key to the Windows Registry to further disable user account control for the remote account that will be used to connect to the VM.
 
-![dor](insert10th pic)
+![dor](https://i.imgur.com/luyjeQp.png)
 
 ## Step 6: Second scan; ran a credentialed scan on Nessus
 
@@ -56,9 +56,11 @@
 -  **1 low** level vulnerability
 -  **182 info** level vulnerabilities.
 
+![easy](https://i.imgur.com/yx1VYMv.png)
+
 This demonstrates the importance of doing credentialed scans on critical resources in an organization. With a basic scan 0 critical/high vulnerabilities were found, however, with a credentialed scan 163 total critical/high level vulnerabilities were found. 
 
-![easy](insert 11th pic)
+
 
 
 
@@ -67,16 +69,32 @@ This demonstrates the importance of doing credentialed scans on critical resourc
 > This was done to create and inspect more vulnerabilities, and to gain more experience inspecting and fixing vulnerabilities.
 
 - After the scan was completed the following vulnerabilities were found:
-- **125 critical**
+- **125 critical** level vulnarbilites 
 - **210 high** level vulnerabilities
 - **37 medium** level vulnerabilities
 - **1 low** level vulnerability
 - **183 info** level vulnerabilities
-![insert](12th pic)
+
+> As shown below, a lot of vulnerabilities come with legacy versions of applications which demonstrates the importance of staying on top of updates and patches. 
+![insert](https://i.imgur.com/e7hgFda.png)
 
 ## Step 8: Remediated the vulnerabilities
 
-After inspecting the vulnerability scans, I viewed the solutions for them and made some remediations. The remediated vulnerability scans are as follows:
+After inspecting the vulnerability scans, I viewed the solutions for them, I made the following remidaitions:
+- Deleted the legacy version of Firefox
+- Checked for updates and installed Windows updates on the VM
+- Upgraded Microsoft Edge to the latest version
+
+![solutions](https://i.imgur.com/KgcWaGF.png)
+
+The remediated vulnerability scan results are as follows:
+- **1 critical level vulnerability**
+- **13 high-level vulnerabilities**
+- **7 medium-level vulnerabilities**
+- **1 low-level vulnerability**
+- **180 info level vulnerabilities**
+
+![forget](https://i.imgur.com/OTsxoJx.png)
 
 
 
@@ -86,8 +104,8 @@ After inspecting the vulnerability scans, I viewed the solutions for them and ma
 
 | Basic Scan          | Credentialed Scan            | Crednetialed Scan with Firefox            | Remediated Scan          |
 |---------------------|--------------------------------|--------------------------------|---------------------|
-| ![Image1](path/to/image1.png) | ![Image2](path/to/image2.png) | ![Image3](path/to/image3.png) | ![Image4](path/to/image4.png) |
-| Description 1       | Description 2       | Description 3       | Description 4       |
+| ![Image1](https://i.imgur.com/PmduP37.png) | ![Image2](https://i.imgur.com/yx1VYMv.png) | ![Image3](https://i.imgur.com/e7hgFda.png) | ![Image4](https://i.imgur.com/OTsxoJx.png) |
+| The basic scan was the quickest and didn't dive deep into the system. It showed a limited amount of info-level vulnerabilities with 0 critical/high-level vulnerabilities. This demonstrates how unreliable basic scans are.      | The credentialed scan took much longer to complete and showed much more vulnerabilities compared to the basic scan. This demonstrates its superiority over a basic scan | The third vulnerability scan was done after a legacy version of Firefox was installed. It showed an enormous amount of vulnerabilities on the Windows VM compared to the credentialed scan which demonstrates the importance of upgrading legacy systems and applications.    | The fourth and final scan was done after some remediations were made to the VM. The remediations were made based on the solutions by Nessus. The scan was a credentialed scan and showcased much fewer vulnerabilities than the other two credentialed scans demonstrating that vulnerability management is an essential part of having cybersecurity.       |
 
 
 
