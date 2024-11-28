@@ -1,5 +1,5 @@
 # Vulnerability Management Lab with Nessus
-**Description goes here**
+This lab demonstrates a systematic approach to vulnerability management, encompassing detection, analysis, remediation, and validation. It underscores the importance of proactive security measures and provides hands-on experience with industry-standard tools and methodologies.
 
 ## Tools and Technologies used
 - VMWare for the Windows VM
